@@ -7,6 +7,7 @@ async function fetchMusic(query) {
   try {
     const response = await fetch(API_URL);
     const data = await response.json();
+    
     displayResults(data.results);
   } catch (error) {
     console.error('Error fetching music:', error);
@@ -24,7 +25,7 @@ function displayResults(songs) {
   songs.forEach(song => {
     const songDiv = document.createElement('div');
     songDiv.classList.add('song');
-
+     console.log(song.trackPrice.toFixed(2))
     const price = song.trackPrice
       ? `$${song.trackPrice.toFixed(2)}`
       : "Price not available";
